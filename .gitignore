@@ -29,3 +29,4 @@ packed
 vite.config.ts.*.mjs
 
 dist.zip
+public/manifest.json
