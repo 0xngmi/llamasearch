@@ -41,6 +41,7 @@ const manifest: ManifestType = {
     "newtab": "src/pages/popup/index.html"
   },
   permissions: ["storage", "alarms"],
+  optional_permissions: ["topSites"],
 };
 
 export default manifest;

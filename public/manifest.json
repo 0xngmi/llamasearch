@@ -45,5 +45,8 @@
   "permissions": [
     "storage",
     "alarms"
+  ],
+  "optional_permissions": [
+    "topSites"
   ]
 }
