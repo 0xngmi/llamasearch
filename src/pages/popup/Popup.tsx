@@ -71,7 +71,7 @@ const Popup = () => {
                     }
                     value={item.url}
                   >
-                    <a href={item.url} target="_blank" rel="noopener noreferrer">
+                    <a href={item.url} target="_self" rel="noopener noreferrer">
                       {item.text}
                     </a>
                   </Combobox.Option>
@@ -111,7 +111,7 @@ const Popup = () => {
             <ul className="flex flex-col gap-2">
               {displayTopSites.map((o) => (
                 <li key={o.url} className="text-center">
-                  <a href={o.url} className="text-base text-center underline" target="_blank" rel="noopener noreferrer">
+                  <a href={o.url} className="text-base text-center underline" rel="noopener noreferrer">
                     {o.title}
                   </a>
                 </li>
