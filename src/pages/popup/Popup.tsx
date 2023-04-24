@@ -106,7 +106,17 @@ const Popup = () => {
 
         {displayTopSites && (
           <>
-            <h2 className="text-xl font-semibold text-center">Top most visited sites</h2>
+            <h2 className="text-xl font-semibold text-center">Top most visited sites <button
+            className="py-2 px-4 bg-blue-100 hover:bg-blue-200 mx-auto text-black w-fit text-base font-medium rounded-lg"
+            onClick={()=>{
+              chrome.permissions.remove({
+                permissions: ['topSites'],
+              }, (removed) => {
+                if (removed) { // This should always be true, but if something goes wrong we just don't change stuff so user can retry again
+                  setDisplayTopSites(undefined)
+                }
+              });
+            }}>x</button></h2>
 
             <ul className="flex flex-col gap-2">
               {displayTopSites.map((o) => (
