@@ -13,6 +13,3 @@ ReactDOM.createRoot(rootElement).render(
     </QueryClientProvider>
   </React.StrictMode>,
 );
-
-//@ts-ignore
-//window.protocols = protocolsDb;

@@ -26,6 +26,14 @@ export async function getSearchOptions(text:string){
             }
         ]
     }
+    if(/^(bc1|[13])[a-zA-HJ-NP-Z0-9]{25,39}$/.test(text)){
+        return [
+            {
+                text: "Open bitcoin address in explorer",
+                url: `https://www.blockchain.com/explorer/addresses/btc/${text}`
+            }
+        ]
+    }
     let list = []
     if(text.length > 3){
         const nftsMatched = (await nfts).filter(p=>p.name.toLowerCase().includes(normalizedText))
