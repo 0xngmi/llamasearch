@@ -39,7 +39,7 @@ const Popup = () => {
         name="search"
         defaultValue={""}
         onChange={(url) => {
-          window.open(url, "_blank").focus();
+          window.open(url, "_self").focus();
         }}
       >
         <div className="relative mt-1">
@@ -63,7 +63,6 @@ const Popup = () => {
               ) : (
                 searchOptions.map((item) => (
                   <Combobox.Option
-                    key={item.url}
                     className={({ active }) =>
                       `relative block cursor-pointer select-none py-2 px-4 ${
                         active ? "bg-blue-600 text-white" : "text-gray-900"
@@ -106,21 +105,31 @@ const Popup = () => {
 
         {displayTopSites && (
           <>
-            <h2 className="text-xl font-semibold text-center">Top most visited sites <button
-            className="py-2 px-4 bg-blue-100 hover:bg-blue-200 mx-auto text-black w-fit text-base font-medium rounded-lg"
-            onClick={()=>{
-              chrome.permissions.remove({
-                permissions: ['topSites'],
-              }, (removed) => {
-                if (removed) { // This should always be true, but if something goes wrong we just don't change stuff so user can retry again
-                  setDisplayTopSites(undefined)
-                }
-              });
-            }}>x</button></h2>
+            <h2 className="text-xl font-semibold text-center">
+              Top most visited sites{" "}
+              <button
+                className="py-2 px-4 bg-blue-100 hover:bg-blue-200 mx-auto text-black w-fit text-base font-medium rounded-lg"
+                onClick={() => {
+                  chrome.permissions.remove(
+                    {
+                      permissions: ["topSites"],
+                    },
+                    (removed) => {
+                      if (removed) {
+                        // This should always be true, but if something goes wrong we just don't change stuff so user can retry again
+                        setDisplayTopSites(undefined);
+                      }
+                    },
+                  );
+                }}
+              >
+                x
+              </button>
+            </h2>
 
             <ul className="flex flex-col gap-2">
               {displayTopSites.map((o) => (
-                <li key={o.url} className="text-center">
+                <li key={"top-sites" + o.url} className="text-center">
                   <a href={o.url} className="text-base text-center underline" rel="noopener noreferrer">
                     {o.title}
                   </a>
