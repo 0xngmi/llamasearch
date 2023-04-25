@@ -1,4 +1,5 @@
 import { nftDb, protocolsDb, tokensDb } from "../libs/db";
+import levenshtein from "fast-levenshtein";
 
 const nfts = nftDb.nfts.toArray();
 const protocols = protocolsDb.protocols.toArray();
@@ -6,12 +7,17 @@ const tokens = tokensDb.tokens.toArray();
 
 export async function getSearchOptions(text:string){
     const normalizedText = text.toLowerCase()
+    const googleSearchOption = {
+        text: "Search google",
+        url: `https://www.google.com/search?q=${text}`
+    }
     if(/0x[0-f]{64}/.test(text)){
         return [
             {
                 text: "Open tx in etherscan",
                 url: `https://blockscan.com/tx/${text}`
-            }
+            },
+            googleSearchOption
         ]
     }
     if(/0x[0-9A-Fa-f]{40}/.test(text)){
@@ -23,7 +29,8 @@ export async function getSearchOptions(text:string){
             {
                 text: "Open address in debank",
                 url: `https://debank.com/profile/${text}`
-            }
+            },
+            googleSearchOption
         ]
     }
     if(/^(bc1|[13])[a-zA-HJ-NP-Z0-9]{25,39}$/.test(text)){
@@ -31,7 +38,8 @@ export async function getSearchOptions(text:string){
             {
                 text: "Open bitcoin address in explorer",
                 url: `https://www.blockchain.com/explorer/addresses/btc/${text}`
-            }
+            },
+            googleSearchOption
         ]
     }
     let list = []
@@ -68,10 +76,7 @@ export async function getSearchOptions(text:string){
         }
     }
     return list.concat([
-        {
-            text: "Search google",
-            url: `https://www.google.com/search?q=${text}`
-        }
+        googleSearchOption
     ])
     // Swap X for Y
     // Borrow X
