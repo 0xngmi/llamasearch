@@ -136,7 +136,7 @@ const Popup = () => {
             </h2>
 
             <ul className="flex gap-2 flex-wrap mx-auto justify-center">
-              {displayTopSites.map((o) => (
+              {displayTopSites.slice(0,10).map((o) => (
                 <li key={"top-sites" + o.url} className="rounded-md hover:bg-gray-100 p-2">
                   <a
                     href={o.url}
