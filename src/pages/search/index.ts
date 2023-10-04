@@ -1,6 +1,36 @@
 import levenshtein from "fast-levenshtein";
 
-export function calculateSearchOptions(text:string, storedDB: {tokens:any[], nfts:any[], protocols:any[], other: any[]}){
+interface Protocol {
+  name: string;
+  url: string;
+  logo: string;
+  category?: string;
+  tvl?: number;
+}
+
+interface Token {
+  id: string;
+  name: string;
+  platforms: {
+    [chain: string]: string
+  }
+  symbol: string;
+}
+
+interface NFT {
+  collectionId: string;
+  name: string;
+  mcap: number;
+  image: string;
+}
+
+interface Other {
+    name: string;
+    url: string;
+    logo: string;
+}
+
+export function calculateSearchOptions(text:string, storedDB: {tokens:Token[], nfts:NFT[], protocols:Protocol[], other: Other[]}){
     const normalizedText = text.toLowerCase()
     const googleSearchOption = {
         text: "Search google",
