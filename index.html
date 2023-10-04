@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>New Tab</title>
+    <link href="src/output.css" rel="stylesheet" />
+  </head>
+  <body>
+    <script>
+        chrome={
+            storage:{local:{
+                get: ()=>fetch("./src/pages/search/data/search.json").then(r=>r.json())
+            }},
+            permissions: {contains:()=>false}
+        }
+    </script>
+    <script type="module" src="/src/pages/popup/index.tsx"></script>
+  </body>
+</html>

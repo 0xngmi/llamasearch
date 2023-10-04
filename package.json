@@ -6,6 +6,7 @@
   "description": "LlamaSearch Extension",
   "displayName": "LlamaSearch",
   "scripts": {
+    "search": "vite",
     "test": "jest",
     "css": "npx tailwindcss -i ./src/global.css -o ./src/output.css",
     "dev": "rm -f vite.config.ts.*.mjs && yarn css && nodemon",
