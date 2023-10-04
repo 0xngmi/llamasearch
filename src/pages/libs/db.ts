@@ -8,19 +8,6 @@ export interface Protocol {
   tvl?: number;
 }
 
-export class ProtocolsDb extends Dexie {
-  protocols!: Table<Protocol>;
-
-  constructor() {
-    super("ProtocolsDb");
-    this.version(1).stores({
-      protocols: "name, category",
-    });
-  }
-}
-
-export const protocolsDb = new ProtocolsDb();
-
 export interface Domain {
   domain: string;
 }
@@ -47,38 +34,12 @@ export interface Token {
   symbol: string;
 }
 
-export class TokensDb extends Dexie {
-  tokens!: Table<Token>;
-
-  constructor() {
-    super("TokensDb");
-    this.version(1).stores({
-      tokens: "id",
-    });
-  }
-}
-
-export const tokensDb = new TokensDb();
-
 export interface NFT {
   collectionId: string;
   name: string;
   mcap: number;
   image: string;
 }
-
-export class NFTDb extends Dexie {
-  nfts!: Table<NFT>;
-
-  constructor() {
-    super("NFTDb");
-    this.version(1).stores({
-      nfts: "collectionId",
-    });
-  }
-}
-
-export const nftDb = new NFTDb();
 
 export class FuzzyDomainsDb extends Dexie {
   domains!: Table<Domain>;
