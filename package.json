@@ -1,9 +1,9 @@
 {
-  "name": "defillama-extension",
+  "name": "llamasearch-extension",
   "private": true,
-  "version": "0.0.2.4",
+  "version": "0.0.1.0",
   "type": "module",
-  "description": "LlamaSearch Extension",
+  "description": "Always go to the right domains, avoid scam pages",
   "displayName": "LlamaSearch",
   "scripts": {
     "search": "vite",
