@@ -106,7 +106,7 @@ const Popup = () => {
         {displayTopSites && (
           <>
             <h2 className="text-xl font-semibold text-center flex items-center gap-4 justify-center dark:text-white">
-              <span>Most visited sites</span>
+              <span>Your most visited sites</span>
               <button
                 className="py-1 px-3 bg-gray-100 hover:bg-gray-200 text-black text-base font-medium rounded-md"
                 onClick={() => {
