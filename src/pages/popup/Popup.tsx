@@ -99,14 +99,14 @@ const Popup = () => {
             }}
             className="py-2 px-4 bg-blue-100 hover:bg-blue-200 mx-auto text-black w-fit text-base font-medium rounded-md"
           >
-            Display top used sites
+            Display your most used sites
           </button>
         )}
 
         {displayTopSites && (
           <>
             <h2 className="text-xl font-semibold text-center flex items-center gap-4 justify-center">
-              <span>Top most visited sites</span>
+              <span>Most visited sites</span>
               <button
                 className="py-1 px-3 bg-gray-100 hover:bg-gray-200 text-black text-base font-medium rounded-md"
                 onClick={() => {
