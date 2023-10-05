@@ -99,13 +99,13 @@ export function calculateSearchOptions(text:string, storedDB: {tokens:Token[], n
             storedDB.nfts.map(p => ({
                 text: `Check price of ${p.name} on defillama`,
                 url: `https://defillama.com/nfts/collection/${p.collectionId}`,
-                type: "nft",
+                type: "NFT",
                 score: calculateRankingScore(normalizedText, p.name, p.mcap)
             })),
             storedDB.protocols.map(p => ({
                 text: `Open ${p.name}`,
                 url: p.url,
-                type: "protocol",
+                type: p.category,
                 score: calculateRankingScore(normalizedText, p.name, p.tvl)
             })),
             storedDB.other.map(p => ({
@@ -117,7 +117,7 @@ export function calculateSearchOptions(text:string, storedDB: {tokens:Token[], n
             storedDB.tokens.map(p => ({
                 text: `Check ${p.name} on coingecko`,
                 url: `https://www.coingecko.com/en/coins/${p.id}`,
-                type: "coingecko",
+                type: "CoinGecko",
                 score: calculateRankingScore(normalizedText, p.name, p.mcap, p.symbol)
             }))
         )
