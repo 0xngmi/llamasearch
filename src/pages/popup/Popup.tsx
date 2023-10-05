@@ -27,12 +27,12 @@ const Popup = () => {
   };
 
   return (
-    <div className="w-full mx-auto max-w-xl mt-[8%] py-4 px-8 gap-6 flex-col flex">
+    <div className="w-full mx-auto max-w-xl mt-[8%] py-4 px-8 gap-6 flex-col flex dark:bg-slate-800">
       <h1 className="mx-auto">
         <a href="https://defillama.com/" target="_blank" rel="noopener noreferrer">
           <img src={cute} alt="Cute Llama" className="w-14 h-14 mx-auto" />
         </a>
-        <span className="text-2xl font-bold ">LlamaSearch</span>
+        <span className="text-2xl font-bold dark:text-white">LlamaSearch</span>
       </h1>
 
       <Combobox
@@ -105,7 +105,7 @@ const Popup = () => {
 
         {displayTopSites && (
           <>
-            <h2 className="text-xl font-semibold text-center flex items-center gap-4 justify-center">
+            <h2 className="text-xl font-semibold text-center flex items-center gap-4 justify-center dark:text-white">
               <span>Most visited sites</span>
               <button
                 className="py-1 px-3 bg-gray-100 hover:bg-gray-200 text-black text-base font-medium rounded-md"
@@ -149,7 +149,7 @@ const Popup = () => {
                         className="mx-auto object-contain w-10 h-10"
                       />
                     </span>
-                    <span className="text-ellipsis overflow-hidden whitespace-nowrap text-center">{o.title}</span>
+                    <span className="text-ellipsis overflow-hidden whitespace-nowrap text-center dark:text-white">{o.title}</span>
                   </a>
                 </li>
               ))}
