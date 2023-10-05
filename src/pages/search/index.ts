@@ -122,7 +122,7 @@ export function calculateSearchOptions(text:string, storedDB: {tokens:Token[], n
             }))
         )
     }
-    return list.sort((a,b)=>b.score - a.score).slice(0,4).concat([
+    return list.sort((a,b)=>b.score - a.score).slice(0,4).filter(p=>p.score > 0).concat([
         googleSearchOption
     ])
     // Swap X for Y
