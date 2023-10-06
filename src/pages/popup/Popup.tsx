@@ -76,9 +76,16 @@ const Popup = () => {
                     }
                     value={item.url}
                   >
+                    {item.type === "Google"?
+                    <a onClick={()=>chrome.search.query({
+                      text: item.url.slice("search:".length)
+                    }, ()=>{})} target="_self" rel="noopener noreferrer">
+                      {item.text}
+                    </a>:
                     <a href={item.url} target="_self" rel="noopener noreferrer">
                       {item.text}
                     </a>
+                    }
                     <div className="">{item.type}</div>
                   </Combobox.Option>
                 ))
