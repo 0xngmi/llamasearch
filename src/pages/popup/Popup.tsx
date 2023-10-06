@@ -108,7 +108,7 @@ const Popup = () => {
             <h2 className="text-xl font-semibold text-center flex items-center gap-4 justify-center dark:text-white">
               <span>Your most visited sites</span>
               <button
-                className="py-1 px-3 bg-gray-100 hover:bg-gray-200 text-black text-base font-medium rounded-md"
+                className="py-1 px-3 bg-gray-100 hover:bg-gray-200 text-black text-base font-medium rounded-md dark:bg-slate-900 dark:text-white dark:hover:bg-slate-700"
                 onClick={() => {
                   chrome.permissions.remove(
                     {
@@ -137,7 +137,7 @@ const Popup = () => {
 
             <ul className="flex gap-2 flex-wrap mx-auto justify-center">
               {displayTopSites.slice(0,10).map((o) => (
-                <li key={"top-sites" + o.url} className="rounded-md hover:bg-gray-100 p-2">
+                <li key={"top-sites" + o.url} className="rounded-md hover:bg-gray-100 p-2 dark:hover:bg-slate-600">
                   <a
                     href={o.url}
                     className="text-xs flex flex-col gap-2 w-[80px] justify-between p-2"
