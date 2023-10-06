@@ -42,7 +42,7 @@ export function calculateSearchOptions(text:string, storedDB: {tokens:Token[], n
     const normalizedText = text.toLowerCase()
     const googleSearchOption = {
         text: "Search google",
-        url: `https://www.google.com/search?q=${text}`,
+        url: `search:${text}`,
         type: "google",
         score: 1
     }

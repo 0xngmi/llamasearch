@@ -39,7 +39,13 @@ const Popup = () => {
         name="search"
         defaultValue={""}
         onChange={(url) => {
-          window.open(url, "_self").focus();
+          if(url.startsWith("search:")){
+            chrome.search.query({
+              text: url.slice("search:".length)
+            }, ()=>{})
+          } else {
+            window.open(url, "_self").focus();
+          }
         }}
       >
         <div className="relative mt-1">

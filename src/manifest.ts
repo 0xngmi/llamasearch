@@ -40,7 +40,7 @@ const manifest: ManifestType = {
   chrome_url_overrides : {
     "newtab": "src/pages/popup/index.html"
   },
-  permissions: ["storage", "alarms"],
+  permissions: ["storage", "alarms", "search"],
   optional_permissions: ["topSites"],
 };
 
