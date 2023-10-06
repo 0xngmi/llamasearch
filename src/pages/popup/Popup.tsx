@@ -70,7 +70,7 @@ const Popup = () => {
                 searchOptions.map((item) => (
                   <Combobox.Option
                     className={({ active }) =>
-                      `relative block cursor-pointer select-none py-2 px-4 ${
+                      `flex justify-between block cursor-pointer select-none py-2 px-4 ${
                         active ? "bg-blue-600 text-white" : "text-gray-900"
                       }`
                     }
@@ -79,6 +79,7 @@ const Popup = () => {
                     <a href={item.url} target="_self" rel="noopener noreferrer">
                       {item.text}
                     </a>
+                    <div className="">{item.type}</div>
                   </Combobox.Option>
                 ))
               )}

@@ -43,7 +43,7 @@ export function calculateSearchOptions(text:string, storedDB: {tokens:Token[], n
     const googleSearchOption = {
         text: "Search google",
         url: `search:${text}`,
-        type: "google",
+        type: "Google",
         score: 1
     }
     if(/0x[0-f]{64}/.test(text)){
@@ -51,7 +51,7 @@ export function calculateSearchOptions(text:string, storedDB: {tokens:Token[], n
             {
                 text: "Open tx in etherscan",
                 url: `https://blockscan.com/tx/${text}`,
-                type: "etherscan"
+                type: "Etherscan"
             },
             googleSearchOption
         ]
@@ -61,12 +61,12 @@ export function calculateSearchOptions(text:string, storedDB: {tokens:Token[], n
             {
                 text: "Open address in blockscan",
                 url: `https://blockscan.com/address/${text}`,
-                type: "etherscan"
+                type: "Etherscan"
             },
             {
                 text: "Open address in debank",
                 url: `https://debank.com/profile/${text}`,
-                type: "debank"
+                type: "Debank"
             },
             googleSearchOption
         ]
@@ -76,7 +76,7 @@ export function calculateSearchOptions(text:string, storedDB: {tokens:Token[], n
             {
                 text: "Open bitcoin address in explorer",
                 url: `https://www.blockchain.com/explorer/addresses/btc/${text}`,
-                type: "blockchain"
+                type: "Explorer"
             },
             googleSearchOption
         ]
@@ -88,7 +88,7 @@ export function calculateSearchOptions(text:string, storedDB: {tokens:Token[], n
             ...matched.slice(0,3).map(p=>({
                 text: `$${p.symbol.toUpperCase()} on coingecko`,
                 url: `https://www.coingecko.com/en/coins/${p.id}`,
-                type: "coingecko"
+                type: "CoinGecko"
             })),
             googleSearchOption
         ]
@@ -111,11 +111,11 @@ export function calculateSearchOptions(text:string, storedDB: {tokens:Token[], n
             storedDB.other.map(p => ({
                 text: `Open ${p.name}`,
                 url: p.url,
-                type: "other",
+                type: p.name.split(' ')[0],
                 score: calculateRankingScore(normalizedText, p.name, Number.MAX_VALUE)
             })),
             storedDB.tokens.map(p => ({
-                text: `Check ${p.name} on coingecko`,
+                text: `Check $${p.symbol.toUpperCase()} price`,
                 url: `https://www.coingecko.com/en/coins/${p.id}`,
                 type: "CoinGecko",
                 score: calculateRankingScore(normalizedText, p.name, p.mcap, p.symbol)
