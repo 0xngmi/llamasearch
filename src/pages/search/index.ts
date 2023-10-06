@@ -118,7 +118,7 @@ export function calculateSearchOptions(text:string, storedDB: {tokens:Token[], n
                 text: `Check $${p.symbol.toUpperCase()} price`,
                 url: `https://www.coingecko.com/en/coins/${p.id}`,
                 type: "CoinGecko",
-                score: calculateRankingScore(normalizedText, p.name, p.mcap, p.symbol)
+                score: calculateRankingScore(normalizedText, p.name, p.mcap*0.7, p.symbol)
             }))
         )
     }
