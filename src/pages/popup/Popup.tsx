@@ -150,7 +150,7 @@ const Popup = () => {
                     className="text-xs flex flex-col gap-2 w-[80px] justify-between p-2"
                     rel="noopener noreferrer"
                   >
-                    <span className="mx-auto p-2 bg-gray-200 rounded-md">
+                    <span className="mx-auto p-2 bg-gray-200 rounded-md dark:bg-gray-600">
                       <img
                         src={`https://www.google.com/s2/favicons?domain_url=${o.url}&sz=64`}
                         className="mx-auto object-contain w-10 h-10"
