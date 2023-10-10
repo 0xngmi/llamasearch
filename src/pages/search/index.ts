@@ -68,6 +68,11 @@ export function calculateSearchOptions(text:string, storedDB: {tokens:Token[], n
                 url: `https://debank.com/profile/${text}`,
                 type: "Debank"
             },
+            {
+                text: "Open address in LlamaFolio",
+                url: `https://llamafolio.com/address/${text}`,
+                type: "LlamaFolio"
+            },
             googleSearchOption
         ]
     }
