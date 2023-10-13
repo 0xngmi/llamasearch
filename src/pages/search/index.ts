@@ -1,5 +1,3 @@
-import levenshtein from "fast-levenshtein";
-
 interface Protocol {
   name: string;
   url: string;
