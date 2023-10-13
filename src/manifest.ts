@@ -6,7 +6,9 @@ const manifest: ManifestType = {
   name: packageJson.displayName,
   version: packageJson.version,
   description: packageJson.description,
-  background: { service_worker: "src/pages/background/index.js", type: "module" },
+  background: process.env.BROWSER === "FIREFOX" ?
+    { scripts: ["src/pages/background/index.js"] } as any
+    : { service_worker: "src/pages/background/index.js", type: "module" },
   action: {
     default_title: packageJson.displayName,
     default_icon: "icon-34.png",

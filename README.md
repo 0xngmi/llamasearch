@@ -7,6 +7,9 @@ Run these commands to prepare a zip file to be uploaded to the Chrome Web Store.
 ```bash
 yarn
 yarn prep
+
+# Firefox build
+BROWSER="FIREFOX" yarn prep
 ```
 
 You will find the prepared zip file at `./packed/extension.zip`.
