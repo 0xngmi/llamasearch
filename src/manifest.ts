@@ -44,6 +44,11 @@ const manifest: ManifestType = {
   },
   permissions: ["storage", "alarms", "search"],
   optional_permissions: ["topSites"],
+  browser_specific_settings: {
+    gecko: {
+      id: "{6fedf605-8e91-4556-b281-b595590ffb4a}"
+    }
+  }
 };
 
 export default manifest;

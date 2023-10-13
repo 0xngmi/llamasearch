@@ -232,6 +232,7 @@ export interface ManifestType {
   update_url?: string | undefined;
   version_name?: string | undefined;
   web_accessible_resources?: (WebAccessibleResourceById | WebAccessibleResourceByMatch)[] | undefined;
+  browser_specific_settings?: any
 }
 
 interface DeclarativeNetRequestResource {
