@@ -6,9 +6,10 @@ const manifest: ManifestType = {
   name: packageJson.displayName,
   version: packageJson.version,
   description: packageJson.description,
-  background: process.env.BROWSER === "FIREFOX" ?
-    { scripts: ["src/pages/background/index.js"] } as any
-    : { service_worker: "src/pages/background/index.js", type: "module" },
+  background:
+    process.env.BROWSER === "FIREFOX"
+      ? ({ scripts: ["src/pages/background/index.js"] } as any)
+      : { service_worker: "src/pages/background/index.js", type: "module" },
   action: {
     default_title: packageJson.displayName,
     default_icon: "icon-34.png",
@@ -39,16 +40,16 @@ const manifest: ManifestType = {
       matches: ["<all_urls>"],
     },
   ],
-  chrome_url_overrides : {
-    "newtab": "src/pages/popup/index.html"
+  chrome_url_overrides: {
+    newtab: "src/pages/popup/index.html",
   },
   permissions: ["storage", "alarms", "search"],
-  optional_permissions: ["topSites"],
+  optional_permissions: ["topSites", "bookmarks"],
   browser_specific_settings: {
     gecko: {
-      id: "{6fedf605-8e91-4556-b281-b595590ffb4a}"
-    }
-  }
+      id: "{6fedf605-8e91-4556-b281-b595590ffb4a}",
+    },
+  },
 };
 
 export default manifest;
