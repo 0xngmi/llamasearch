@@ -67,24 +67,28 @@ const Popup = () => {
     }
   };
   console.log(displayBookmarks);
+  const bookmarksRoot = displayBookmarks?.[0]?.children;
+  let bookmarksFolder = bookmarksRoot?.[0]?.children;
+  if (bookmarksRoot?.some((bookmarkFolder) => bookmarkFolder.id === "toolbar_____")) {
+    bookmarksFolder = bookmarksRoot.find((bookmarkFolder) => bookmarkFolder.id === "toolbar_____").children;
+  }
+
   return (
     <>
       <div className="block fixed w-full top-0">
         <div className="flex flex-col w-full">
-          {displayBookmarks ? (
+          {bookmarksFolder ? (
             <div
               className="flex flex-row w-full bg-chrome-light dark:bg-chrome-dark border-b-[1px] border-chrome-barbottom-light dark:border-chrome-barbottom-dark overflow-x-scroll"
               style={{ scrollbarWidth: "none" }}
             >
               <div className="px-2 py-1.5">
                 <div className="flex flex-row gap-2.5">
-                  {displayBookmarks[0]?.children?.[0]?.children?.map((node) => (
+                  {bookmarksFolder.map((node) => (
                     <FavoriteButton
                       node={node}
                       openedBookmark={openedBookmark}
                       setOpenedBookmark={(id: string) => {
-                        console.log("setOpenedBookmark", id);
-
                         setOpenedBookmark(id);
                       }}
                     />

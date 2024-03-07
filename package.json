@@ -1,7 +1,7 @@
 {
   "name": "llamasearch-extension",
   "private": true,
-  "version": "0.0.1.1",
+  "version": "0.0.1.2",
   "type": "module",
   "description": "Always go to the right domains and avoid scam pages",
   "displayName": "LlamaSearch",
@@ -11,6 +11,7 @@
     "css": "postcss ./src/global.css -o ./src/output.css",
     "css:watch": "postcss ./src/global.css -o ./src/output.css --watch",
     "dev": "rm -f vite.config.ts.*.mjs && concurrently \"yarn css:watch\" \"nodemon\"",
+    "dev:firefox": "rm -f vite.config.ts.*.mjs && BROWSER=FIREFOX concurrently \"yarn css:watch\" \"nodemon\"",
     "build": "tsc --noEmit && yarn css && vite build",
     "zip": "web-ext build -s dist -a packed -n extension.zip -o",
     "prep": "rm -f vite.config.ts.*.mjs && rm -rf dist packed && yarn build && yarn zip"
