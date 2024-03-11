@@ -142,12 +142,13 @@ const Popup = () => {
             }
           }}
         >
-          <div className="mt-1">
+          <div className="relative mt-1">
             <Combobox.Input
               className="w-full py-2 px-4 text-base text-black rounded-md focus:ring-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-blue-600 border"
               displayValue={() => value}
               onChange={handleChange}
               placeholder="Search..."
+              tabIndex={1}
             />
 
             <Transition
