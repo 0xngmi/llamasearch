@@ -66,7 +66,6 @@ const Popup = () => {
       );
     }
   };
-  console.log(displayBookmarks);
   const bookmarksRoot = displayBookmarks?.[0]?.children;
   let bookmarksFolder = bookmarksRoot?.[0]?.children;
   if (bookmarksRoot?.some((bookmarkFolder) => bookmarkFolder.id === "toolbar_____")) {
