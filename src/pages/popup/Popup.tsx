@@ -75,7 +75,7 @@ const Popup = () => {
 
   return (
     <>
-      <div className="block fixed w-full top-0">
+      <div className="block fixed w-full top-0 z-10">
         <div className="flex flex-col w-full">
           {bookmarksFolder ? (
             <div
