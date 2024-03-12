@@ -57,14 +57,19 @@ export function calculateSearchOptions(text:string, storedDB: {tokens:Token[], n
     if(/0x[0-9A-Fa-f]{40}/.test(text)){
         return [
             {
-                text: "Open address in blockscan",
+                text: "Open address in BlockScan",
                 url: `https://blockscan.com/address/${text}`,
                 type: "Etherscan"
             },
             {
-                text: "Open address in debank",
+                text: "Open address in DeBank",
                 url: `https://debank.com/profile/${text}`,
-                type: "Debank"
+                type: "DeBank"
+            },
+            {
+                text: "Open address in DEXScreener",
+                url: `https://dexscreener.com/search?q=${text}`,
+                type: "DEXScreener"
             },
             {
                 text: "Open address in LlamaFolio",
