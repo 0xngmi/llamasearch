@@ -211,7 +211,7 @@ const DropdownButton = ({
                     }
                   }
                 }}
-                className="max-w-[400px] max-h-[calc(100vh-35px)] overflow-y-scroll flex flex-col py-2 shadow-xl bg-chrome-dropdown-light dark:bg-chrome-dropdown-dark rounded-xl border-[1px] border-chrome-dropdown-border-light dark:border-chrome-dropdown-border-dark no-scrollbar"
+                className="max-w-[400px] max-h-[calc(100vh-35px)] overflow-y-scroll flex flex-col py-2 shadow-xl bg-chrome-dropdown-light dark:bg-chrome-dropdown-dark rounded-xl border-[0.5px] border-chrome-dropdown-border-light dark:border-chrome-dropdown-border-dark no-scrollbar"
               >
                 {node.children.length > 0 ? (
                   node.children.map((child) => (
