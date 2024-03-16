@@ -78,8 +78,7 @@ const Popup = () => {
         <div className="flex flex-col w-full">
           {bookmarksFolder ? (
             <div
-              className="flex flex-row w-full bg-chrome-light dark:bg-chrome-dark border-b-[1px] border-chrome-barbottom-light dark:border-chrome-barbottom-dark overflow-x-scroll"
-              style={{ scrollbarWidth: "none" }}
+              className="flex flex-row w-full bg-chrome-light dark:bg-chrome-dark border-b-[1px] border-chrome-barbottom-light dark:border-chrome-barbottom-dark overflow-x-scroll no-scrollbar"
             >
               <div className="px-2 py-1.5">
                 <div className="flex flex-row gap-2.5">

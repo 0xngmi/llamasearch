@@ -129,7 +129,7 @@ const FavoriteButton = ({
             {open && (
               <Menu.Items
                 static
-                className="max-w-[400px] max-h-[calc(100vh-35px)] overflow-y-scroll flex flex-col py-2 shadow-xl bg-chrome-dropdown-light dark:bg-chrome-dropdown-dark rounded-xl border-[1px] border-chrome-dropdown-border-light dark:border-chrome-dropdown-border-dark"
+                className="max-w-[400px] max-h-[calc(100vh-35px)] overflow-y-scroll flex flex-col py-2 shadow-xl bg-chrome-dropdown-light dark:bg-chrome-dropdown-dark rounded-xl border-[0.5px] border-chrome-dropdown-border-light dark:border-chrome-dropdown-border-dark no-scrollbar"
                 onKeyDown={(event) => {
                   // catch Enter keydown on folder bookmarks to prevent the menu from closing (default Headless menu behavior)
                   if (event.key === "Enter") {
