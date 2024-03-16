@@ -147,6 +147,7 @@ const Popup = () => {
               onChange={handleChange}
               placeholder="Search..."
               tabIndex={1}
+              autoComplete="off"
             />
 
             <Transition
