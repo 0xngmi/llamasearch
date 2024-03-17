@@ -4,6 +4,7 @@ interface Protocol {
   logo: string;
   category?: string;
   tvl?: number;
+  mcap?: number;
 }
 
 interface Token {
@@ -94,7 +95,7 @@ export function calculateSearchOptions(text:string, storedDB: {tokens:Token[], n
         const matched = storedDB.tokens.filter(p=>p.symbol.startsWith(ticker))
         return [
             ...matched.slice(0,3).map(p=>({
-                text: `$${p.symbol.toUpperCase()} on coingecko`,
+                text: `$${p.symbol.toUpperCase()} (${p.name}) on coingecko`,
                 url: `https://www.coingecko.com/en/coins/${p.id}`,
                 type: "CoinGecko"
             })),
@@ -114,7 +115,7 @@ export function calculateSearchOptions(text:string, storedDB: {tokens:Token[], n
                 text: `Open ${p.name}`,
                 url: p.url,
                 type: p.category,
-                score: calculateRankingScore(normalizedText, p.name, p.tvl)
+                score: calculateRankingScore(normalizedText, p.name, Math.max((p.mcap ?? 0)*0.4, p.tvl))
             })),
             storedDB.other.map(p => ({
                 text: `Open ${p.name}`,
