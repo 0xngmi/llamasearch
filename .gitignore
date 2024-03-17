@@ -32,3 +32,6 @@ dist.zip
 public/manifest.json
 
 src/output.css
+
+build
+build.zip
