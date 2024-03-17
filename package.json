@@ -10,7 +10,7 @@
     "test": "jest",
     "dev": "rm -f vite.config.ts.*.mjs && \"nodemon\"",
     "dev:firefox": "rm -f vite.config.ts.*.mjs && BROWSER=FIREFOX \"nodemon\"",
-    "build": "tsc --noEmit && yarn css && vite build",
+    "build": "tsc --noEmit && vite build",
     "zip": "web-ext build -s dist -a packed -n extension.zip -o",
     "prep": "rm -f vite.config.ts.*.mjs && rm -rf dist packed && yarn build && yarn zip"
   },
