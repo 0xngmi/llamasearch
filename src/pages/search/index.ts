@@ -90,6 +90,21 @@ export function calculateSearchOptions(text:string, storedDB: {tokens:Token[], n
             googleSearchOption
         ]
     }
+    if(/^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(text)){
+        return [
+            {
+                text: "Open address in DEXScreener",
+                url: `https://dexscreener.com/solana/${text}`,
+                type: "DEXScreener"
+            },
+            {
+                text: "Open address in explorer",
+                url: `https://solscan.io/account/${text}`,
+                type: "SolScan"
+            },
+            googleSearchOption
+        ]
+    }
     if(text.startsWith("$")){
         const ticker = normalizedText.slice(1)
         const matched = storedDB.tokens.filter(p=>p.symbol.startsWith(ticker))
